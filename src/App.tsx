@@ -1,8 +1,16 @@
 import type { Component } from "solid-js";
+import { getDaysMatrix } from "./utils";
+import CalendarHeader from "./components/CalendarHeader";
 
 const App: Component = () => {
+  console.log(getDaysMatrix());
   return (
-    <p class="text-4xl text-green-700 text-center py-20">Hello tailwind!</p>
+    <>
+      <div class="h-screen flex flex-col">
+        <CalendarHeader />
+        <div class="flex flex-1"></div>
+      </div>
+    </>
   );
 };
 
