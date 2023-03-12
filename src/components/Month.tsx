@@ -1,6 +1,6 @@
+import type { Dayjs } from "dayjs";
 import { For } from "solid-js";
 import Day from "./Day";
-import type { Dayjs } from "dayjs";
 
 interface MonthProps {
   month: () => Dayjs[][];
