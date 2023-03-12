@@ -5,3 +5,8 @@ export type CalendarEvent = {
   day: any;
   id: string;
 };
+
+export type Label = {
+   test: string;
+   checked: boolean;
+}
