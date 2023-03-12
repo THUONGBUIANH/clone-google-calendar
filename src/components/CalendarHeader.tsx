@@ -1,20 +1,22 @@
 import dayjs from "dayjs";
 import logo from "../assets/logo.png";
-import { createSignal } from "solid-js";
 import { DATE_FORMAT } from "../constants";
+import { monthIndex, setMonthIndex } from '../store'
 
 export default function CalendarHeader() {
-  const [monthIndex, setMonthIndex] = createSignal(0);
+
   function handlePrevMonth() {
     setMonthIndex(monthIndex() - 1);
   }
+
   function handleNextMonth() {
     setMonthIndex(monthIndex() + 1);
   }
+  
   function handleReset() {
-    console.log(monthIndex() + Math.random());
     setMonthIndex(dayjs().month());
   }
+
   return (
     <header class="px-4 py-2 flex items-center">
       <img src={logo} alt="calendar" class="mr-2 w-12 h-12" />
