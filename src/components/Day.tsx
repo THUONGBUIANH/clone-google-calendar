@@ -1,10 +1,11 @@
 import dayjs from "dayjs";
-import { createSignal, createEffect, For } from "solid-js";
+import { createEffect, createSignal, For } from "solid-js";
+import { DATE_FORMAT } from "../constants";
 import {
-  setDaySelected,
-  setShowEventModal,
   filteredEvents,
+  setDaySelected,
   setSelectedEvent,
+  setShowEventModal,
 } from "../store";
 
 export default function Day({ day, rowIdx }) {
@@ -12,14 +13,16 @@ export default function Day({ day, rowIdx }) {
 
   createEffect(() => {
     const events = filteredEvents().filter(
-      (evt) => dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY")
+      (evt) =>
+        dayjs(evt.day).format(DATE_FORMAT.DDMMYY) ===
+        day.format(DATE_FORMAT.DDMMYY)
     );
 
     setDayEvents(events);
   });
 
   function getCurrentDayClass() {
-    return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY")
+    return day.format(DATE_FORMAT.DDMMYY) === dayjs().format(DATE_FORMAT.DDMMYY)
       ? "bg-blue-600 text-white rounded-full w-7"
       : "";
   }
@@ -28,10 +31,12 @@ export default function Day({ day, rowIdx }) {
     <div class="border border-gray-200 flex flex-col">
       <header class="flex flex-col items-center">
         {rowIdx === 0 && (
-          <p class="text-sm mt-1">{day.format("ddd").toUpperCase()}</p>
+          <p class="text-sm mt-1">
+            {day.format(DATE_FORMAT.ddd).toUpperCase()}
+          </p>
         )}
         <p class={`text-sm p-1 my-1 text-center  ${getCurrentDayClass()}`}>
-          {day.format("DD")}
+          {day.format(DATE_FORMAT.DD)}
         </p>
       </header>
       <div
