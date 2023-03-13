@@ -62,11 +62,11 @@ export default function SmallCalendar() {
           </button>
         </div>
       </header>
-      <div class="grid grid-cols-7 grid-rows-6">
+      <div class="grid grid-cols-7 grid-rows-6 gap-0">
         <For each={currentMonth()[0]}>
           {(day) => (
             <span class="text-sm py-1 text-center">
-              {day.format(DATE_FORMAT.DD).charAt(0)}
+                {day.format(DATE_FORMAT.dd)}
             </span>
           )}
         </For>

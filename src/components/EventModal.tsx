@@ -28,7 +28,7 @@ export default function EventModal() {
 
     const calendarEvent = {
       ...event,
-      day: daySelected.valueOf(),
+      day: daySelected().valueOf(),
       id: selectedEvent() ? selectedEvent().id : Date.now(),
     } as CalendarEvent;
 

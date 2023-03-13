@@ -4,6 +4,7 @@ export enum DATE_FORMAT {
   ddd = "ddd",
   DD = "DD",
   D = "D",
+  dd = "dd",
 }
 
 export const LabelsClasses = [
